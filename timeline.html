@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linha do Tempo Interativa</title>
+    <style>
+        .timeline {
+            position: relative;
+            height: 2px;
+            background-color: #ddd;
+            margin: 50px 0;
+        }
+        .event {
+            position: absolute;
+            top: -10px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .popup {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="timeline">
+        <div class="event" style="left: 10%; background-color: blue;" onclick="showPopup(this, 'Palestra 1')"></div>
+        <div class="event" style="left: 30%; background-color: green;" onclick="showPopup(this, 'Almoço')"></div>
+        <div class="event" style="left: 60%; background-color: red;" onclick="showPopup(this, 'Networking')"></div>
+    </div>
+
+    <div id="popup" class="popup"></div>
+
+    <script>
+        function showPopup(element, text) {
+            const popup = document.getElementById('popup');
+            popup.innerHTML = text;
+            popup.style.display = 'block';
+            popup.style.left = element.offsetLeft + 'px';
+            popup.style.top = (element.offsetTop + 30) + 'px';
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade de Horários Dinâmica</title>
+    <style>
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 1px;
+        }
+        .cell {
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .cell:hover {
+            transform: scale(1.1);
+            z-index: 1;
+        }
+        .cepri { background-color: #ffcccb; }
+        .epe { background-color: #ccffcc; }
+        .ons { background-color: #cce5ff; }
+        .eppei { background-color: #ffffcc; }
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <div class="cell">Hora</div>
+        <div class="cell">9:00</div>
+        <div class="cell">10:00</div>
+        <div class="cell">11:00</div>
+        <div class="cell">12:00</div>
+        <div class="cell">13:00</div>
+        <div class="cell">14:00</div>
+        <div class="cell">15:00</div>
+
+        <div class="cell">CEPRI</div>
+        <div class="cell cepri">Sessão 1</div>
+        <div class="cell cepri">Sessão 2</div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell cepri">Sessão 3</div>
+        <div class="cell cepri">Sessão 4</div>
+        <div class="cell"></div>
+
+        <div class="cell">EPE</div>
+        <div class="cell"></div>
+        <div class="cell epe">Sessão 1</div>
+        <div class="cell epe">Sessão 2</div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell epe">Sessão 3</div>
+        <div class="cell epe">Sessão 4</div>
+
+        <div class="cell">ONS</div>
+        <div class="cell ons">Sessão 1</div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell ons">Sessão 2</div>
+        <div class="cell ons">Sessão 3</div>
+        <div class="cell"></div>
+        <div class="cell ons">Sessão 4</div>
+
+        <div class="cell">EPPEI</div>
+        <div class="cell"></div>
+        <div class="cell eppei">Sessão 1</div>
+        <div class="cell eppei">Sessão 2</div>
+        <div class="cell eppei">Sessão 3</div>
+        <div class="cell"></div>
+        <div class="cell eppei">Sessão 4</div>
+        <div class="cell"></div>
+    </div>
+</body>
+</html>
